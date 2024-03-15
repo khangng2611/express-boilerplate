@@ -6,7 +6,7 @@ import RefreshToken from '../models/refreshToken.model.js';
 import PasswordResetToken from '../models/passwordResetToken.model.js';
 import vars from '../../config/vars.js';
 import APIError from '../errors/api-error.js';
-import emailProvider from '../services/emails/emailProvider.js';
+import * as emailProvider from '../services/emails/emailProvider.js';
 
 /**
  * Returns a formated object with tokens

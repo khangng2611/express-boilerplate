@@ -50,4 +50,6 @@ refreshTokenSchema.statics = {
 /**
  * @typedef RefreshToken
  */
-export default RefreshToken = mongoose.model('RefreshToken', refreshTokenSchema);
+const RefreshToken = mongoose.model('RefreshToken', refreshTokenSchema);
+
+export default RefreshToken;

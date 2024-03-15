@@ -1,10 +1,10 @@
+import bluebird from 'bluebird'; // eslint-disable-line no-global-assign
 import mongoose from 'mongoose';
 import logger from './logger.js';
 import vars from './vars.js';
-import bluebird from 'bluebird'; // eslint-disable-line no-global-assign
 
 // set mongoose Promise to Bluebird
-const {Promise} = bluebird;
+const { Promise } = bluebird;
 mongoose.Promise = Promise;
 
 // Exit application on error
@@ -39,4 +39,4 @@ export default function connect() {
       process.exit(-1);
     });
   return mongoose.connection;
-};
+}

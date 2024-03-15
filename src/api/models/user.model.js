@@ -148,7 +148,7 @@ userSchema.statics = {
 
     const user = await this.findOne({ email }).exec();
     const err = {
-      status: httpStatus.UNAUTHORIZED,
+      status: HttpStatus.UNAUTHORIZED,
       isPublic: true,
     };
     if (password) {
@@ -203,7 +203,7 @@ userSchema.statics = {
           location: 'body',
           messages: ['"email" already exists'],
         }],
-        status: httpStatus.CONFLICT,
+        status: HttpStatus.CONFLICT,
         isPublic: true,
         stack: error.stack,
       });

@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-export default {
+const authValidation = {
   // POST /v1/auth/register
   register: {
     body: {
@@ -67,3 +67,5 @@ export default {
     },
   },
 };
+
+export default authValidation;
