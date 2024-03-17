@@ -1,18 +1,19 @@
 import Email from 'email-templates';
 import nodemailer from 'nodemailer';
-import vars from '../../../config/vars.js';
+import config from '../../../config/config.js';
 
+const { emailConfig } = config;
 // SMTP is the main transport in Nodemailer for delivering messages.
 // SMTP is also the protocol used between almost all email hosts, so its truly universal.
 // if you dont want to use SMTP you can create your own transport here
 // such as an email service API or nodemailer-sendgrid-transport
 
 const transporter = nodemailer.createTransport({
-  port: vars.emailConfig.port,
-  host: vars.emailConfig.host,
+  port: emailConfig.port,
+  host: emailConfig.host,
   auth: {
-    user: vars.emailConfig.username,
-    pass: vars.emailConfig.password,
+    user: emailConfig.username,
+    pass: emailConfig.password,
   },
   secure: false, // upgrades later with STARTTLS -- change this based on the PORT
 });

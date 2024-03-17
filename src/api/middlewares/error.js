@@ -1,7 +1,7 @@
 import HttpStatus from 'http-status';
 import expressValidation from 'express-validation';
 import APIError from '../errors/api-error.js';
-import vars from '../../config/vars.js';
+import config from '../../config/config.js';
 
 /**
  * Error handler. Send stacktrace only during development
@@ -15,7 +15,7 @@ export const handler = (err, req, res, next) => {
     stack: err.stack,
   };
 
-  if (vars.env !== 'development') {
+  if (config.env !== 'development') {
     delete response.stack;
   }
 
@@ -40,6 +40,7 @@ export const converter = (err, req, res, next) => {
   } else if (!(err instanceof APIError)) {
     convertedError = new APIError({
       message: err.message,
+      errors: err.errors,
       status: err.status,
       stack: err.stack,
     });
